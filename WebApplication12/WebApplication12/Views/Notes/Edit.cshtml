@@ -14,44 +14,44 @@
         border: 1px solid #000000;
     }
 </style>
-        <form asp-action="Edit">
-<body>
-    <canvas style="background-image: url(data:Img64;base64,@System.Convert.ToBase64String(@Model.Img64))" id="canvas" width="1150" height="500" onmouseout="clearMousePositions()"></canvas>
-    <select id="color">
-        <option value="black">Black</option>
-        <option value="red">Red</option>
-        <option value="yellow">Yellow</option>
-        <option value="green">Green</option>
-        <option value="blue">Blue</option>
-    </select>
+<form asp-action="Edit">
+    <body>
+        <canvas style="background-image: url(data:Img64;base64,@System.Convert.ToBase64String(@Model.Img64))" id="canvas" width="1150" height="500" onmouseout="clearMousePositions()"></canvas>
+        <select id="color">
+            <option value="black">Black</option>
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+        </select>
 
-    @*<div id="output"></div>*@
+        @*<div id="output"></div>*@
 
-</body>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-        <input type="hidden" asp-for="NoteId" />
-        <input type="hidden" asp-for="Img64" />
-        <input type="hidden" asp-for="UserId" />
-
-
+    </body>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="NoteId" />
+            <input type="hidden" asp-for="Img64" />
+            <input type="hidden" asp-for="UserId" />
 
 
-        <div class="form-group">
-            <label asp-for="Text" class="control-label"></label>
-            <input asp-for="Text" class="form-control" />
-            <span asp-validation-for="Text" class="text-danger"></span>
-        </div>
-        @*<div class="form-group">
-            <label asp-for="UserId" class="control-label"></label>
-            <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
-            <span asp-validation-for="UserId" class="text-danger"></span>
-        </div>*@
-        <div class="form-group">
-            <input type="submit" value="Save" class="btn btn-default"  />
-        </div>
+
+
+            <div class="form-group">
+                <label asp-for="Text" class="control-label"></label>
+                <input asp-for="Text" class="form-control" />
+                <span asp-validation-for="Text" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                    <label asp-for="UserId" class="control-label"></label>
+                    <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                    <span asp-validation-for="UserId" class="text-danger"></span>
+                </div>*@
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
 </form>
     </div>
 </div>
@@ -62,5 +62,6 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/whiteBoard.js"></script>
 }
