@@ -1,0 +1,51 @@
+﻿@model IEnumerable<LiveBoard.Models.Notes>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Text)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @*@using Microsoft.AspNetCore.Identity
+        @inject UserManager<ApplicationUser> UserManager
+        @if (UserManager.IsSignedIn(Model.))*@
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img
+                            src="data:Img64;base64,@System.Convert.ToBase64String(item.Img64)"
+                        />
+                        @Html.DisplayFor(modelItem => item.Text)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.User.Id)
+                    </td>*@
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.NoteId">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.NoteId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.NoteId">Delete</a>
+                    </td>
+                </tr>
+            }
+    </tbody>
+</table>
